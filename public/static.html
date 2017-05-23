@@ -1,4 +1,4 @@
-<!--[if lt IE 8]><html class="no-js ie6 oldie" lang="en"> 
+<!--[if lt IE 8]><html class="no-js ie6 oldie" lang="en">
 <![endif]--><!--[if IE 7]><html class="no-js ie7 oldie" lang="en">
 <![endif]--><!--[if IE 8]><html class="no-js ie8 oldie" lang="en">
 <![endif]--><!--[if gt IE 8]><!-->
@@ -19,56 +19,62 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" type="text/css" /><!-- end CSS-->
   <script src="js/libs/modernizr-2.0.6.min.js" type="text/javascript">
+
 </script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
 </head>
 
 <body>
   <div id="container">
-    <div id="main" role="main">
+    <div id="options">
 
-      <!-- Todo App Interface-->
+        <!-- Necessary button for the library -->
+        <button id="toggleInputButton" onclick="toggleLiveInput()">Start</button>
 
-      <div id="todoapp">
-        <div class="title">
-          <h1>Todos</h1>
-        </div>
+        Sensivity(Hz.):
+
+        <input id="inputSensivity" type="number" value="2" min="1" max="50">
+
+        Check Interval(ms.):
+
+        <input id="inputInterval" type="number" value="2" min="1" max="1000">
+
+        Check Repeats:
+
+        <input id="inputRepeats" type="number" value="5" min="1" max="50">
+
+        Minimum Frequency(Hz.):
+
+        <input id="inputMin" type="number" value="90" min="90" max="300">
+
+        Maximum Frequency(Hz.):
+
+        <input id="inputMax" type="number" value="255" min="90" max="300">
+
+        <br> Last output value: <span id="outputPitch"></span>
+
+    </div>
+      <div id="vocalheroapp">
 
         <div class="content">
-          <div id="create-todo">
-            <input id="new-todo" placeholder="What needs to be done?" type=
-            "text" /><span style="display:none;" class="ui-tooltip-top">Press Enter to
-            save this task</span>
-          </div>
+          <canvas id="myCanvas" >
+          </canvas>
 
-          <div id="todos">
-            <ul id="todo-list"></ul>
-          </div>
-
-          <div id="todo-stats"></div>
+          <script id="highscore-template" type="text/template">
+            <div class="todo <%= done ? 'done' : '' %>">
+            <div class="display"><input class="check" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+            <div class="todo-text"></div><span id="todo-destroy"></span></div><div class="edit"><input type="text" value="" class="todo-input"/></div></div>
+          </script>
         </div>
       </div>
 
 
     <!-- Templates-->
 
-      <script id="item-template" type="text/template">
-      <div class="todo <%= done ? 'done' : '' %>">
-      <div class="display"><input class="check" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-      <div class="todo-text"></div><span id="todo-destroy"></span></div><div class="edit"><input type="text" value="" class="todo-input"/></div></div>
-      </script>
 
-      <script id="stats-template" type="text/template">
-      <% if (total) { %>
-      <span class="todo-count"><span class="number"><%= remaining %> </span><span class="word"><%= remaining == 1 ? 'item' : 'items' %></span> left.
-      </span><% } %>
-      <% if (done) { %>
-      <span class="todo-clear"><a href="#"> Clear
-      <span class="number-done"><%= done %></span> completed
-      <span class="word-done"><%= done == 1 ? 'item' : 'items' %></span></a></span><% } %>
-      </script>
 
-    </div>
+
   </div>
 
   <!--! end of #container-->
@@ -87,6 +93,8 @@
 </script><script src="js/mylibs/backbone.js" type="text/javascript">
 </script><script defer="defer" src="js/plugins.js" type="text/javascript">
 </script><script defer="defer" src="js/script.js" type="text/javascript">
+</script><script defer="defer" src="js/game.js" type="text/javascript">
+</script><script defer="defer" src="js/PitchDetectionLibrary.js" type="text/javascript">
 </script>
 
 <script type=
