@@ -1,0 +1,16 @@
+{
+  "name": "vocal-hero",
+  "version": "1.0.0",
+  "description": "The game application which uses sound signal to play\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sound",
+    "pitch",
+    "analysis"
+  ],
+  "author": "Naim Buru",
+  "license": "MIT"
+}
