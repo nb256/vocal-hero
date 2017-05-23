@@ -1,4 +1,4 @@
-# Simple Single Page Social App
+# A Html5 Canvas game which uses [Pitch Detection Library](https://github.com/nb256/pitch-detection-library)
 
 ### Installing
 
