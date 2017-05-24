@@ -2,7 +2,10 @@ var img = null;
 $(document).ready(function() {
   img = new Image();
   img.src = 'img/ship.png';
-
+  img2 = new Image();
+  img2.src = 'img/brick.png';
+  img2.width = 50;
+  img2.height = 50;
 });
 
 // Create the canvas
@@ -14,24 +17,24 @@ canvas.height = window.innerHeight;
 
 var velocityOfShip = 0;
 var velocityOfObstackle = +3;
-var ship = {x:canvas.width/2, y:canvas.height /5 * 4};
+var ship = {x:canvas.width/2, y:canvas.height /4 * 3};
 var flame = {x:ship.x +28, y: ship.y + 110};
 
 
 
-var obstackleColor = 255;
+var obstackleColor = 180;
 var obstackle1 = {x:0, y:0, width:canvas.width, height:50};
 var obstackle2 = {x:0, y:0, width:canvas.width, height:50};
 
 
 
 var resetObstackles = function(){
-  //1/3 of screen is allowed, and the other 2/3 is obstackle
-  var allowedSpaceX= (canvas.width*1/3)*Math.random();
+  //1/4 of screen is allowed, and the other 3/4 is obstackle
+  var allowedSpaceX= (canvas.width*5/8)*Math.random();
 
   obstackle1.width = allowedSpaceX;
-  obstackle2.width = canvas.width - (canvas.width*2/3) - allowedSpaceX;
-  obstackle2.x = allowedSpaceX + (canvas.width*2/3);
+  obstackle2.width = canvas.width - canvas.width/4 - allowedSpaceX;
+  obstackle2.x = allowedSpaceX + canvas.width/4;
   obstackle1.y = 0;
   obstackle2.y = 0;
 };
@@ -67,11 +70,19 @@ var drawAFrame = function (pitch,inputMin,inputMax){
   obstackle2.y += velocityOfObstackle;
   if(obstackle1.y > canvas.height+ 200)
   {
+    obstackleColor+=30;
+    obstackleColor%=255;
     resetObstackles();
   }
   //obstackles
+  var last_fill_style = context.fillStyle;
+
+
+  context.fillStyle = 'rgb(' + obstackleColor + ','+obstackleColor+','+'100)';
+
   context.fillRect(obstackle1.x,obstackle1.y,obstackle1.width,obstackle1.height);
   context.fillRect(obstackle2.x,obstackle2.y,obstackle2.width,obstackle2.height);
+  context.fillStyle = last_fill_style;
 
 
   ship.x += velocityOfShip;
