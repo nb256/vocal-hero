@@ -29,12 +29,12 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/public/static.html');
+  res.sendFile(__dirname + '/public/static.html');
 });
 
-app.get('/public/img/ship.png', function(req, res) {
-  res.sendfile(__dirname + '/public/img/ship.png');
-});
+// app.get('/public/img/ship.png', function(req, res) {
+//   res.sendFile(__dirname + '/public/img/ship.png');
+// });
 
 app.get('/api/highscores', function(req, res) {
   return Todo.find(function(err, highscores) {

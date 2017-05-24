@@ -13,10 +13,10 @@ var tracks = null;
 var buflen = 1024;
 var buf = new Float32Array(buflen);
 
-// default sensivity is 2hz, checking 5times with 2ms interval
-var inputSens = 2;
+// default sensivity is 5hz, checking 5times with 1ms interval
+var inputSens = 5;
 var inputRep = 5;
-var inputInter = 2;
+var inputInter = 1;
 var inputMin = 90;
 var inputMax = 255;
 
@@ -233,6 +233,7 @@ function updatePitch(time) {
         if (pitch > inputMin && pitch < inputMax) {
           o.innerHTML = pitch;
           //now output might be correctly filtered from harmonics
+
         }
       }
     );
