@@ -26,6 +26,7 @@ window.onload = function() {
 
   audioContext = new AudioContext();
 
+
   //why 5khz? will learn
   MAX_SIZE = Math.max(4, Math.floor(audioContext.sampleRate / 5000));
   // corresponds to a 5kHz signal

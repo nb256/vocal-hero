@@ -19,6 +19,7 @@ var velocityOfShip = 0;
 var velocityOfObstackle = +3;
 var ship = {x:canvas.width/2, y:canvas.height /4 * 3};
 var flame = {x:ship.x +28, y: ship.y + 110};
+var score = 0;
 
 
 
@@ -46,10 +47,19 @@ resetObstackles();
 var drawAFrame = function (pitch,inputMin,inputMax){
   context.clearRect(0, 0, innerWidth, innerHeight);
   // context.globalCompositeOperation = "source-over";
-
+  console.log(ship.x +' '  +obstackle1.x+ ' '  +ship.x +' '  +obstackle1.width +'.......'  +
+  ship.y+' '  + obstackle1.y +' '  + ship.y +' '  +obstackle1.height);
 
   //crash
-  // if(obstackle1.y + 50 == ship.y && shipp)
+  if(
+  ((ship.x + 30 >= obstackle1.x && ship.x  + 30<= obstackle1.x+obstackle1.width) &&
+  (ship.y + 50>= obstackle1.y && ship.y + 50<= obstackle1.y+ obstackle1.height))||
+  ((ship.x  + 30>= obstackle2.x && ship.x  + 30<= obstackle2.x + obstackle2.width) &&
+  (ship.y + 50>= obstackle2.y && ship.y + 50<= obstackle2.y + obstackle2.height))
+  )
+{
+  alert("bambambam");
+}
 
 
 
@@ -59,9 +69,15 @@ var drawAFrame = function (pitch,inputMin,inputMax){
   if(pitch){
      inputX = canvas.width * (pitch - inputMin) / (inputMax - inputMin);
      }
+
+   context.font="40px Comic Sans MS";
+   context.fillText('Score: '+score,inputX - 30,canvas.height/10);
+   score+=velocityOfObstackle;
+  score = Math.round(score);
   velocityOfShip = (inputX-ship.x)/10;
   velocityOfObstackle += 0.001;
-  //last input demonstration
+
+  //input shade
   context.globalAlpha = 0.2;
   context.fillRect(inputX,0,30,canvas.height);
   context.globalAlpha = 1.0;
@@ -84,7 +100,8 @@ var drawAFrame = function (pitch,inputMin,inputMax){
   context.fillRect(obstackle2.x,obstackle2.y,obstackle2.width,obstackle2.height);
   context.fillStyle = last_fill_style;
 
-
+  velocityOfShip = (inputX-ship.x)/10;
+  velocityOfObstackle += 0.001;
   ship.x += velocityOfShip;
   flame.x += velocityOfShip;
   //ship
