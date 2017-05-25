@@ -48,6 +48,13 @@ var backgroundRed = 0;
 var backgroundGreen = 0;
 var flameParticles = [];
 var last_score = 0;
+if(canvas.width<480){
+    context.font='14px Comic Sans MS';
+}else if(canvas.width<768){
+    context.font='30px Comic Sans MS';
+}else{
+    context.font='80px Comic Sans MS';
+}
 
 var initializeGame = function(){
   velocityOfShip = 0;
@@ -84,9 +91,8 @@ var drawAMenuFrame = function (){
 
   //logo
   context.drawImage(logo, canvas.width/2-canvas.width/6, canvas.height/10,  canvas.width/3, canvas.width/3);
-
-  context.font="40px Comic Sans MS";
-  context.fillText('Last Score: '+last_score,canvas.width/2-canvas.width/6+100,canvas.height/10+ canvas.width/3  + 100);
+  //score
+  context.fillText('Last Score: '+last_score,canvas.width/2-canvas.width/6+100,9*canvas.height/10);
 };
 
 
@@ -142,7 +148,6 @@ var drawAGameFrame = function (pitch,inputMin,inputMax){
 
 
 
-   context.font="40px Comic Sans MS";
    context.fillText('Score: '+score,inputX - 30,canvas.height/10);
    score+=velocityOfObstackle;
   score = Math.round(score);
