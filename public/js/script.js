@@ -12,6 +12,23 @@ $(function(){
 
   });
 
+  window.Game = Backbone.Model.extend({
+	  idAttribute: "_id",
+
+    defaults: function() {
+      return {
+        state:  "play"
+      };
+    }
+  //   ,
+  //   initialize: function() {
+  //      this.on('change', this.notifyGeneral, this);
+  //  }
+
+  });
+
+  game = new Game();
+
 
   window.HighScores = Backbone.Collection.extend({
 

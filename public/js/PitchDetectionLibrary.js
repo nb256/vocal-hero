@@ -242,7 +242,7 @@ function updatePitch(time) {
 
   //added for the game
   var pitch = o.innerHTML;
-  drawAFrame(pitch,inputMin,inputMax);
+  StartGame(pitch,inputMin,inputMax);
 
   if (!window.requestAnimationFrame)
     window.requestAnimationFrame = window.webkitRequestAnimationFrame;
