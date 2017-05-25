@@ -47,6 +47,7 @@ var obstackle2 = {x:0, y:0, width:canvas.width, height:50};
 var backgroundRed = 0;
 var backgroundGreen = 0;
 var flameParticles = [];
+var last_score = 0;
 
 var initializeGame = function(){
   velocityOfShip = 0;
@@ -84,8 +85,8 @@ var drawAMenuFrame = function (){
   //logo
   context.drawImage(logo, canvas.width/2-canvas.width/6, canvas.height/10,  canvas.width/3, canvas.width/3);
 
-  //flame
-  // drawTheFlame(context);
+  context.font="40px Comic Sans MS";
+  context.fillText('Last Score: '+last_score,canvas.width/2-canvas.width/6+100,canvas.height/10+ canvas.width/3  + 100);
 };
 
 
@@ -109,7 +110,9 @@ var drawAGameFrame = function (pitch,inputMin,inputMax){
     (ship.y + 50>= obstackle2.y && ship.y + 50<= obstackle2.y + obstackle2.height))
   )
   {
-    alert("bambambam");
+    last_score = score;
+    initializeGame();
+    game.set({ state: "menu" });
   }
 
 
