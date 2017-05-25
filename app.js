@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/static.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 // app.get('/public/img/ship.png', function(req, res) {

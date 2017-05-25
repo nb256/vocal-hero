@@ -4,11 +4,14 @@
 
 ```
 1) npm install
-2) open mongodb at port 27017
-3) node app.js
+2) node app.js
 ```
 
-http://localhost:3000/static.html
+http://localhost:3000
+
+
+[LIVE DEMO](https://vocal-hero.firebaseapp.com/)
+
 
 ## Authors
 
