@@ -14,7 +14,7 @@ var buflen = 1024;
 var buf = new Float32Array(buflen);
 
 // default sensivity is 5hz, checking 5times with 1ms interval
-var inputSens = 5;
+var inputSens = 5; 
 var inputRep = 5;
 var inputInter = 1;
 var inputMin = 90;
@@ -23,6 +23,7 @@ var inputMax = 255;
 var MIN_SAMPLES = 0; // will be initialized when AudioContext is created.
 
 window.onload = function() {
+
 
   audioContext = new AudioContext();
 
@@ -77,6 +78,9 @@ function toggleLiveInput() {
       window.cancelAnimationFrame = window.webkitCancelAnimationFrame;
     window.cancelAnimationFrame(rafID);
   } else {
+    audioContext.resume().then(() => {
+      console.log('Playback resumed successfully');
+    });
     document.getElementById("toggleInputButton").innerHTML = "Stop";
     isPlaying = true;
     getUserMedia({
