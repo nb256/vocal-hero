@@ -7,6 +7,16 @@ $(document).ready(function () {
   logo.src = "img/logo.png";
 });
 
+const game = {
+  state: "play",
+  set: function (new_state) {
+    this.state = new_state;
+  },
+  get: function () {
+    return this.state;
+  },
+};
+
 var StartGame = function (pitch, inputMin, inputMax) {
   switch (game.get("state")) {
     case "menu":
