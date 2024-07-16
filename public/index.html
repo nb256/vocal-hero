@@ -1,64 +1,66 @@
 <!--[if lt IE 8]><html class="no-js ie6 oldie" lang="en">
-<![endif]--><!--[if IE 7]><html class="no-js ie7 oldie" lang="en">
-<![endif]--><!--[if IE 8]><html class="no-js ie8 oldie" lang="en">
-<![endif]--><!--[if gt IE 8]><!-->
+<!
+[endif]-->[endif]--><!--[if IE 7]><html class="no-js ie7 oldie" lang="en">
+<!
+[endif]-->[endif]--><!--[if IE 8]><html class="no-js ie8 oldie" lang="en">
+<!
+[endif]--><!--[if gt IE 8]><!-->
 
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<!--
+  <!--
 <![endif]-->
 
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>MongoDB Backed TODO App</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-  <title>MongoDB Backed TODO App</title>
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <!-- end CSS-->
+    <script
+      src="js/libs/modernizr-2.0.6.min.js"
+      type="text/javascript"
+    ></script>
+  </head>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css" type="text/css" /><!-- end CSS-->
-  <script src="js/libs/modernizr-2.0.6.min.js" type="text/javascript">
-
-</script>
-
-</head>
-
-<body>
-  <div id="container">
-    <div id="options">
-
+  <body>
+    <div id="container">
+      <div id="options">
         <!-- Necessary button for the library -->
-        <button id="toggleInputButton" onclick="toggleLiveInput()">Start</button>
+        <button id="toggleInputButton" onclick="toggleLiveInput()">
+          Start
+        </button>
 
         Sensivity(Hz.):
 
-        <input id="inputSensivity" type="number" value="5" min="1" max="50">
+        <input id="inputSensivity" type="number" value="1" min="1" max="50" />
 
         Check Interval(ms.):
 
-        <input id="inputInterval" type="number" value="1" min="1" max="1000">
+        <input id="inputInterval" type="number" value="1" min="1" max="1000" />
 
         Check Repeats:
 
-        <input id="inputRepeats" type="number" value="5" min="1" max="50">
+        <input id="inputRepeats" type="number" value="10" min="1" max="50" />
 
         Minimum Frequency(Hz.):
 
-        <input id="inputMin" type="number" value="90" min="90" max="300">
+        <input id="inputMin" type="number" value="120" min="90" max="300" />
 
         Maximum Frequency(Hz.):
 
-        <input id="inputMax" type="number" value="255" min="90" max="300">
+        <input id="inputMax" type="number" value="255" min="90" max="300" />
 
-        <br> Last output value: <span id="outputPitch"></span>
-
-    </div>
+        <br />
+        Last output value: <span id="outputPitch"></span>
+      </div>
       <div id="vocalheroapp">
-
         <div class="content">
-          <canvas id="myCanvas" >
-          </canvas>
+          <canvas id="myCanvas"> </canvas>
 
           <!-- <script id="highscore-template" type="text/template">
             <div class="todo <%= done ? 'done' : '' %>">
@@ -68,33 +70,32 @@
         </div>
       </div>
 
+      <!-- Templates-->
+    </div>
 
-    <!-- Templates-->
+    <!--! end of #container-->
 
-
-  </div>
-
-  <!--! end of #container-->
-
- <!-- <script src=
+    <!-- <script src=
   "//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript">
 </script> -->
 
-<script type="text/javascript">
-  window.jQuery || document.write('<script src="js/libs/jquery-3.2.1.min.js"><\/script>')
-  </script>
+    <script type="text/javascript">
+      window.jQuery ||
+        document.write('<script src="js/libs/jquery-3.2.1.min.js"><\/script>');
+    </script>
 
+    <script src="js/mylibs/underscore.js" type="text/javascript"></script>
+    <script src="js/mylibs/backbone.js" type="text/javascript"></script>
+    <script defer="defer" src="js/plugins.js" type="text/javascript"></script>
+    <script defer="defer" src="js/game.js" type="text/javascript"></script>
+    <script defer="defer" src="js/script.js" type="text/javascript"></script>
+    <script
+      defer="defer"
+      src="js/PitchDetectionLibrary.js"
+      type="text/javascript"
+    ></script>
 
-  <script src=
-  "js/mylibs/underscore.js" type="text/javascript">
-</script><script src="js/mylibs/backbone.js" type="text/javascript">
-</script><script defer="defer" src="js/plugins.js" type="text/javascript">
-</script><script defer="defer" src="js/game.js" type="text/javascript">
-</script><script defer="defer" src="js/script.js" type="text/javascript">
-</script><script defer="defer" src="js/PitchDetectionLibrary.js" type="text/javascript">
-</script>
-
-<!-- <script type=
+    <!-- <script type=
 "text/javascript">
 //<![CDATA[
   window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
@@ -103,8 +104,13 @@
   //]]>
   </script> -->
 
-  <!--[if lt IE 7]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script><script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
-</script><![endif]-->
-
-</body>
+    <!--[if lt IE 7
+      ]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+      <script>
+        window.attachEvent("onload", function () {
+          CFInstall.check({ mode: "overlay" });
+        });
+      </script><!
+    [endif]-->
+  </body>
 </html>
